@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{32B460B7-1531-431B-A769-49A8E6BBC4AA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BCI.Runtime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BCI.DesignTime.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BCI_Runtime">
+        <MSBuild Projects="BCI.Runtime.dproj"/>
+    </Target>
+    <Target Name="BCI_Runtime:Clean">
+        <MSBuild Projects="BCI.Runtime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BCI_Runtime:Make">
+        <MSBuild Projects="BCI.Runtime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BCI_DesignTime">
+        <MSBuild Projects="BCI.DesignTime.dproj"/>
+    </Target>
+    <Target Name="BCI_DesignTime:Clean">
+        <MSBuild Projects="BCI.DesignTime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BCI_DesignTime:Make">
+        <MSBuild Projects="BCI.DesignTime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BCI_Runtime;BCI_DesignTime"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BCI_Runtime:Clean;BCI_DesignTime:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BCI_Runtime:Make;BCI_DesignTime:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

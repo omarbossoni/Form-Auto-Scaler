@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2026/03/02 14:40:45.000.626,W:\Projects\ProjectGroup1.groupproj=W:\Projects\BCI\My Components\BCI.Components.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="W:\Projects\BCI\My Components\BCI.DesignTime.dproj"/>
+	</Default.Personality>
+</BorlandProject>
